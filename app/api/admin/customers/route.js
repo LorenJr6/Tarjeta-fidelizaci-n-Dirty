@@ -5,7 +5,9 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   const rows = await sql`
-    SELECT id, name, phone, email, stamps, rewards, created_at
+    SELECT id, name, phone, email, stamps, rewards, created_at,
+           now() AS server_time,
+           pg_backend_pid() AS backend_pid
     FROM customers
     ORDER BY stamps DESC, name ASC
   `;
@@ -14,7 +16,7 @@ export async function GET() {
     dbHost = new URL(process.env.DATABASE_URL).hostname;
   } catch {}
   return NextResponse.json(
-    { customers: rows, _debug: { dbHost } },
+    { customers: rows, _debug: { dbHost, checkedAt: new Date().toISOString() } },
     { headers: { "Cache-Control": "no-store" } }
   );
 }
