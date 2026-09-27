@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   const load = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/customers");
+      const res = await fetch("/api/admin/customers", { cache: "no-store" });
       if (res.status === 401) {
         router.push("/admin/login");
         return;

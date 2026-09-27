@@ -9,5 +9,8 @@ export async function GET() {
     FROM customers
     ORDER BY stamps DESC, name ASC
   `;
-  return NextResponse.json({ customers: rows });
+  return NextResponse.json(
+    { customers: rows },
+    { headers: { "Cache-Control": "no-store" } }
+  );
 }
