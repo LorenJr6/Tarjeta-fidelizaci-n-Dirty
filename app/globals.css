@@ -74,3 +74,70 @@ h1 {
 .card li + li {
   margin-top: 6px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 14px 0 6px;
+}
+
+.form label:first-child {
+  margin-top: 0;
+}
+
+.form input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.form input:focus {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 1px;
+}
+
+.form button {
+  margin-top: 20px;
+  padding: 13px 18px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-2);
+  color: #2a1d06;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error-text {
+  color: #ad4531;
+  font-size: 13px;
+  margin: 14px 0 0;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
