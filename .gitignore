@@ -1,0 +1,16 @@
+# dependencias
+/node_modules
+
+# build de Next.js
+/.next/
+/out/
+
+# Vercel
+/.vercel
+
+# variables de entorno (nunca subir claves/secretos)
+.env*.local
+
+# varios
+.DS_Store
+*.log
