@@ -9,8 +9,12 @@ export async function GET() {
     FROM customers
     ORDER BY stamps DESC, name ASC
   `;
+  let dbHost = "desconocido";
+  try {
+    dbHost = new URL(process.env.DATABASE_URL).hostname;
+  } catch {}
   return NextResponse.json(
-    { customers: rows },
+    { customers: rows, _debug: { dbHost } },
     { headers: { "Cache-Control": "no-store" } }
   );
 }

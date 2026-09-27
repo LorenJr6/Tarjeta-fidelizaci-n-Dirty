@@ -9,6 +9,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [busyId, setBusyId] = useState(null);
+  const [debugHost, setDebugHost] = useState("");
   const router = useRouter();
 
   const load = useCallback(async () => {
@@ -21,6 +22,7 @@ export default function AdminDashboard() {
       }
       const data = await res.json();
       setCustomers(data.customers || []);
+      setDebugHost(data._debug?.dbHost || "");
     } catch {
       setError("No se pudo cargar la lista de clientes.");
     } finally {
@@ -168,6 +170,12 @@ export default function AdminDashboard() {
           </div>
         )}
       </section>
+
+      {debugHost && (
+        <p className="muted-note" style={{ marginTop: 20 }}>
+          Diagnóstico temporal — base de datos conectada: {debugHost}
+        </p>
+      )}
     </main>
   );
 }
