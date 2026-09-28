@@ -3,24 +3,15 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="wrap">
-      <span className="kicker">En marcha</span>
-      <h1>Tarjeta de fidelización</h1>
+      <span className="kicker">Bienvenido</span>
+      <h1>Cada ronda suma.</h1>
       <p className="lead">
-        Registro de clientes conectado a una base de datos real. Todavía no
-        hay tarjeta de Apple/Google Wallet ni sellado — son los siguientes
-        pasos.
+        Regístrate en la tarjeta de fidelización de Dirty y empieza a sumar
+        sellos en cada visita. A la décima, invita la casa.
       </p>
-      <Link href="/registro" className="home-link">
-        Ir al formulario de registro →
+      <Link href="/registro" className="hero-cta">
+        Crear mi tarjeta →
       </Link>
-      <div className="card">
-        <h2>Próximos pasos</h2>
-        <ul>
-          <li>Tarjeta en Apple Wallet / Google Wallet</li>
-          <li>Vista del personal para sumar sellos</li>
-          <li>Canjeo del premio</li>
-        </ul>
-      </div>
     </main>
   );
 }
